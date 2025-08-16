@@ -10,9 +10,10 @@ pipeline {
     stages {
 		stage('Checkout') {
 			steps {
-				git 'https://github.com/KaivanKeren/learn-jenkins.git'
-            }
-        }
+				git branch: 'main', url: 'https://github.com/KaivanKeren/learn-jenkins.git'
+   			 }
+		}
+
 
         stage('Build Docker Image') {
 			steps {
