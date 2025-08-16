@@ -24,8 +24,8 @@ pipeline {
         stage('Push Docker Image') {
 			steps {
 				withDockerRegistry([credentialsId: 'dockerhub-id', url: '']) {
-					sh 'docker tag $IMAGE_NAME:$IMAGE_TAG KaivanKeren/$IMAGE_NAME:$IMAGE_TAG'
-                    sh 'docker push KaivanKeren/$IMAGE_NAME:$IMAGE_TAG'
+					sh 'docker tag $IMAGE_NAME:$IMAGE_TAG ximl7122137/$IMAGE_NAME:$IMAGE_TAG'
+                    sh 'docker push ximl7122137/$IMAGE_NAME:$IMAGE_TAG'
                 }
             }
         }
