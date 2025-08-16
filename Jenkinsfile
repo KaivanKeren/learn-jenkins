@@ -3,14 +3,14 @@ pipeline {
 
     environment {
 		DOCKERHUB_CREDENTIALS = credentials('dockerhub-id') // simpan di Jenkins
-        IMAGE_NAME = "dummy-app"
+        IMAGE_NAME = "learn-jenkins"
         IMAGE_TAG = "latest"
     }
 
     stages {
 		stage('Checkout') {
 			steps {
-				git 'https://github.com/username/dummy-app.git'
+				git 'https://github.com/KaivanKeren/learn-jenkins.git'
             }
         }
 
@@ -23,8 +23,8 @@ pipeline {
         stage('Push Docker Image') {
 			steps {
 				withDockerRegistry([credentialsId: 'dockerhub-id', url: '']) {
-					sh 'docker tag $IMAGE_NAME:$IMAGE_TAG username/$IMAGE_NAME:$IMAGE_TAG'
-                    sh 'docker push username/$IMAGE_NAME:$IMAGE_TAG'
+					sh 'docker tag $IMAGE_NAME:$IMAGE_TAG KaivanKeren/$IMAGE_NAME:$IMAGE_TAG'
+                    sh 'docker push KaivanKeren/$IMAGE_NAME:$IMAGE_TAG'
                 }
             }
         }
